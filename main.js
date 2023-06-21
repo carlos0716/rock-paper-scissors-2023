@@ -11,13 +11,9 @@ function randomNumber() {
   }
  
 function oneRound(playerSelection, computerSelection) {
-    
-
-    if ((playerSelection === 'rock') && (computerSelection === 'rock')) {
-        console.log('It is a Draw');
-    } else {
-        console.log('test');
-    }
+    if (playerSelection === '') {
+        alert('Try again');
+    } 
 }  
 
 function playerSelection() {
@@ -25,5 +21,8 @@ function playerSelection() {
     let playerSelectionInsensitive = playerSelection.toLowerCase();
     return playerSelectionInsensitive;
 }
+
+const playerWinsMessage = `Player wins!`;
+const cpuWinsMessage = `CPU wins!`;
 
 //oneRound(playerSelection(), getComputerChoice());
