@@ -5,7 +5,8 @@ const choices = ['rock', 'paper', 'scissors'];// array containing the possible c
 function oneRound(playerSelection, computerSelection) {
 const playerWinsMessage = `Player - ${playerSelection} vs CPU - ${computerSelection} - Player wins!`;
 const cpuWinsMessage = `CPU - ${computerSelection} vs  Player -${playerSelection} - CPU wins!`;
-    
+let playerScore = 0;
+let computerScore = 0;    
 if (playerSelection === '') {
     alert('Try again');
     } else if (playerSelection === computerSelection)  {
@@ -13,22 +14,29 @@ if (playerSelection === '') {
     } else if(playerSelection === 'rock') {
             if(computerSelection === 'scissors'){
                 console.log(playerWinsMessage);
+                playerScore++;
             } else {
                 console.log(cpuWinsMessage);
+                computerScore++;
             }
     } else if(playerSelection === 'paper') {
             if(computerSelection === 'rock') {
                 console.log(playerWinsMessage);
+                playerScore++;
             } else {
                 console.log(cpuWinsMessage);
+                computerScore++;
             }
     } else if(playerSelection === 'scissors') {
         if(computerSelection === 'paper') {
             console.log(playerWinsMessage);
+            playerScore++;
         } else {
             console.log(cpuWinsMessage);
+            computerScore++;
         }
     }
+    console.log(computerScore, playerScore);
 }  
 
 function getComputerChoice() {
