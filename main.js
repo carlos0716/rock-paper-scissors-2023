@@ -1,17 +1,17 @@
 const choices = ['rock', 'paper', 'scissors'];// array containing the possible choices, it is contained into an array to asign an index number to every choice with which will generate the random number.
-let playerScore = 0;
+let playerScore = 0; // the variables to keep the score are set into the global object so they can be accessed by the two functions.
 let computerScore = 0; 
 function game(){
     let score = 0;
     
-    oneRound('scissors', "rock");
+    oneRound(playerSelection(), getComputerChoice());
     console.log(playerScore, computerScore);
     if (playerScore === 5) {
-        console.log('Player Wins')
+        console.log('Player Wins - Game Over')
         playerScore = playerScore - playerScore;
         computerScore = computerScore - computerScore;
     } else if(computerScore === 5) {
-        console.log('CPU Wins')
+        console.log('CPU Wins - Game Over')
         playerScore = playerScore - playerScore;
         computerScore = computerScore - computerScore;
     }
@@ -51,11 +51,11 @@ if (playerSelection === '') {
             console.log(cpuWinsMessage);
             computerScore++;
         }
-    } else if(player !== 'rock'){
+    } else if(playerSelection !== 'rock'){
         alert('Wrong choice, try again')
-    } else if(player !== 'paper'){
+    } else if(playerSelection !== 'paper'){
         alert('Wrong choice, try again')
-    } else if(player !== 'scissors'){
+    } else if(playerSelection !== 'scissors'){
         alert('Wrong choice, try again')
     }
     //console.log(computerScore, playerScore);
