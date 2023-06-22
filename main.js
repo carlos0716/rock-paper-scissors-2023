@@ -1,12 +1,13 @@
-const choices = ['rock', 'paper', 'scissors'];// array containing the possible choices, it is contained into an array to asign an index number to every choice with which will generate the random number.
+es = ['rock', 'paper', 'scissors'];// array containing the possible choices, it is contained into an array to asign an index number to every choice with which will generate the random number.
 						
-
  
 function oneRound(playerSelection, computerSelection) {
-const playerWinsMessage = `Player - ${playerSelection} vs CPU - ${computerSelection} - Player wins!`;
-const cpuWinsMessage = `CPU - ${computerSelection} vs  Player -${playerSelection} - CPU wins!`;
+const playerWinsMessage = `Player - ${playerSelection} CPU - ${computerSelection} - Player wins!`;
+const cpuWinsMessage = `CPU - ${computerSelection} Player - ${playerSelection} - CPU wins!`;
+
 let playerScore = 0;
-let computerScore = 0;    
+let computerScore = 0;  
+  
 if (playerSelection === '') {
     alert('Try again');
     } else if (playerSelection === computerSelection)  {
@@ -36,7 +37,8 @@ if (playerSelection === '') {
             computerScore++;
         }
     }
-    console.log(computerScore, playerScore);
+    let score = `Player ${playerScore} - CPU ${computerScore}`
+    console.log(score);
 }  
 
 function getComputerChoice() {
@@ -48,13 +50,8 @@ function getComputerChoice() {
     function randomNumber() {
         return Math.floor(Math.random() * 3); // creates a random number between 0 and 2
       }
-
 function playerSelection() {
     let playerSelection = prompt('Enter Selection');
     let playerSelectionInsensitive = playerSelection.toLowerCase();
     return playerSelectionInsensitive;
 }
-
-
-
-//oneRound(playerSelection(), getComputerChoice());
