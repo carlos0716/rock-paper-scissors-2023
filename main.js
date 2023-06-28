@@ -1,9 +1,9 @@
-const choices = ['rock', 'paper', 'scissors'];// array containing the possible choices, it is contained into an array to asign an index number to every choice with which will generate the random number.
+const choices = ['rock', 'paper', 'scissors'];
+
 let playerScore = 0; // the variables to keep the score are set into the global object so they can be accessed by the two functions.
 let computerScore = 0; 
+
 function game(){
-    let score = 0;
-    
     oneRound(playerSelection(), getComputerChoice());
     console.log(playerScore, computerScore);
     if (playerScore === 5) {
@@ -15,15 +15,13 @@ function game(){
         playerScore = playerScore - playerScore;
         computerScore = computerScore - computerScore;
     }
-
 }
  
 function oneRound(playerSelection, computerSelection) {
 const playerWinsMessage = `${playerSelection} beats ${computerSelection} - Player wins!`;
 const cpuWinsMessage = `${computerSelection} beats ${playerSelection} - CPU wins!`;
 
-   
-if (playerSelection === '') {
+   if (playerSelection === '') {
     alert('Try again');
     } else if (playerSelection === computerSelection)  {
         console.log(`It is a Draw`);
@@ -58,23 +56,17 @@ if (playerSelection === '') {
     } else if(playerSelection !== 'scissors'){
         alert('Wrong choice, try again')
     }
-    //console.log(computerScore, playerScore);
 }  
 
-
-
-
-//oneRound(playerSelection(), getComputerChoice());
-
 function getComputerChoice() {
-    let computerChoice = choices[randomNumber()]; //uses the index to acces the element selected randomly
+    let computerChoice = choices[randomNumber()]; 
     return computerChoice;
-    }
+}
     
-    
-    function randomNumber() {
-        return Math.floor(Math.random() * 3); // creates a random number between 0 and 2
-      }
+function randomNumber() {
+        return Math.floor(Math.random() * getComputerChoice.length); 
+}
+
 function playerSelection() {
     let playerSelection = prompt('Enter Selection');
     let playerSelectionInsensitive = playerSelection.toLowerCase();
