@@ -37,50 +37,60 @@ function randomNumber() {
 
 const rock = document.getElementById('rock');
 rock.addEventListener('click', (e) =>{
-    oneRound('rock', getComputerChoice());
+    oneRound(e.target.value, getComputerChoice());
 } );
 
 const paper = document.getElementById('paper');
 paper.addEventListener('click', (e) =>{
-    oneRound('paper', getComputerChoice());
+    oneRound(e.target.value, getComputerChoice());
 } );
 
 const scissors = document.getElementById('scissors');
 scissors.addEventListener('click', (e) =>{
-    oneRound('scissors', getComputerChoice());
+    oneRound(e.target.value, getComputerChoice());
 } );
+
+const result = document.getElementById('result');
+const score = document.getElementById('score');
+
 
 
 function oneRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-         console.log('Draw');
+         result.textContent = 'It\'s a draw';
     }
      else if (playerSelection === 'rock') {
      if (computerSelection === 'paper') {
-         console.log('cpu wins');
-         computerScore++;
+         result.textContent = 'CPU wins';
+         
+         score.textContent = `CPU score: ${++computerScore} - Player score: ${playerScore}`;
      } else if (computerSelection === 'scissors') {
-         console.log('cpu lose');
-         playerScore++;
+         result.textContent = 'Player wins';
+         score.textContent = `CPU score: ${computerScore} - Player score: ${++playerScore}`;
+         
      }
     } else if(playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-            console.log('cpu wins');
-            computerScore++;
+            result.textContent = 'CPU wins';
+            
+            score.textContent = `CPU score: ${++computerScore} - Player score: ${playerScore}`;
         } else if (computerSelection === 'rock') {
-            console.log('cpu lose');
-            playerScore++;
+            result.textContent = 'Player wins';
+            score.textContent = `CPU score: ${computerScore} - Player score: ${++playerScore}`;
+            
         }
     } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
-            console.log('cpu wins');
-            computerScore++;
+            result.textContent = 'CPU wins';
+            
+            score.textContent = `CPU score: ${++computerScore} - Player score: ${playerScore}`;
         } else if (computerSelection === 'paper') {
-            console.log('cpu lose');
-            playerScore++;
+            result.textContent = 'Player wins';
+            score.textContent = `CPU score: ${computerScore} - Player score: ${++playerScore}`;
+            
         }
     }
-    return playerScore;
+    
  } ;
 // function playerSelection() {
 //     let playerSelection = 
